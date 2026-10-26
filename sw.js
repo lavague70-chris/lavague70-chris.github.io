@@ -1,7 +1,7 @@
 // 서비스워커: 홈화면 앱이 빨리 열리고, 인터넷이 약해도 화면이 뜨게 합니다.
 // 화면 파일을 고치면 아래 버전 숫자를 올려주세요.
-const CACHE = 'chris-pick-v3';
-const FILES = ['./', 'index.html', 'style.css', 'app.js', 'manifest.webmanifest', 'icons/icon-192.png'];
+const CACHE = 'chris-pick-v4';
+const FILES = ['./', 'index.html', 'style.css?v=4', 'app.js?v=4', 'manifest.webmanifest', 'icons/icon-192.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)));
@@ -17,11 +17,17 @@ self.addEventListener('activate', e => {
 
 // 새 자료가 바로 보이도록 인터넷 먼저, 안 되면 저장해둔 것 사용
 self.addEventListener('fetch', e => {
-  if (e.request.method !== 'GET') return;
+  // 영상처럼 나눠 받는 요청은 브라우저에 맡김
+  if (e.request.method !== 'GET' || e.request.headers.has('range')) return;
+  const sameOrigin = new URL(e.request.url).origin === location.origin;
+  // 내 사이트 파일은 브라우저가 기억해 둔 옛 파일 대신 항상 최신 파일 확인
+  const req = sameOrigin && e.request.mode !== 'navigate'
+    ? new Request(e.request, { cache: 'no-cache' })
+    : e.request;
   e.respondWith(
-    fetch(e.request)
+    fetch(req)
       .then(res => {
-        if (res.ok && new URL(e.request.url).origin === location.origin) {
+        if (res.status === 200 && sameOrigin) {
           const copy = res.clone();
           caches.open(CACHE).then(c => c.put(e.request, copy));
         }
