@@ -1,6 +1,6 @@
 // 서비스워커: 홈화면 앱이 빨리 열리고, 인터넷이 약해도 화면이 뜨게 합니다.
 // 화면 파일을 고치면 아래 버전 숫자를 올려주세요.
-const CACHE = 'chris-pick-v2';
+const CACHE = 'chris-pick-v3';
 const FILES = ['./', 'index.html', 'style.css', 'app.js', 'manifest.webmanifest', 'icons/icon-192.png'];
 
 self.addEventListener('install', e => {

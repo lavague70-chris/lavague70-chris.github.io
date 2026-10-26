@@ -43,11 +43,15 @@ function renderCategory(cat) {
 
   const list = items.length ? items.map(item => {
     const img = item.image || youtubeThumb(item.link);
-    const tag = item.link ? 'a' : 'div';
-    const href = item.link ? ` href="${esc(item.link)}" target="_blank" rel="noopener"` : '';
+    // 영상이 있으면 카드 안에서 바로 재생 (카드 전체를 링크로 만들지 않음)
+    const tag = item.link && !item.video ? 'a' : 'div';
+    const href = tag === 'a' ? ` href="${esc(item.link)}" target="_blank" rel="noopener"` : '';
+    const media = item.video
+      ? `<video src="${esc(item.video)}#t=0.1" controls playsinline preload="metadata"></video>`
+      : img ? `<img src="${esc(img)}" alt="" loading="lazy">` : '';
     return `
       <${tag} class="item"${href}>
-        ${img ? `<img src="${esc(img)}" alt="" loading="lazy">` : ''}
+        ${media}
         <div class="item-body">
           <h3 class="item-title">${esc(item.title)}</h3>
           ${item.memo ? `<p class="item-memo">${esc(item.memo)}</p>` : ''}

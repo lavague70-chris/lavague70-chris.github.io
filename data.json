@@ -22,26 +22,27 @@
   "items": [
     {
       "category": "ai",
-      "title": "(예시) Claude로 미니 홈페이지 만들기",
-      "memo": "말로 설명만 했는데 홈페이지가 뚝딱. 이 사이트가 바로 그 결과물이에요.",
+      "title": "Claude 모션그래픽으로 '강의소개 영상' 만들기",
+      "memo": "양천구 수업 소개 영상을 Claude 모션그래픽으로 만들었어요.",
       "link": "",
       "image": "",
+      "video": "images/ai-intro.mp4",
       "date": "2026-10-26"
     },
     {
       "category": "sewing",
-      "title": "(예시) 첫 번째 파우치",
-      "memo": "지퍼 다는 게 제일 어려웠어요. 사진을 올리면 여기에 보여요.",
+      "title": "앞치마 만들기",
+      "memo": "원단은 포목광에서 구매했어요.",
       "link": "",
-      "image": "",
+      "image": "images/sewing-apron.jpg",
       "date": "2026-10-26"
     },
     {
       "category": "walk",
-      "title": "(예시) 가을 전시 구경",
-      "memo": "유튜브나 블로그 링크를 넣으면 눌러서 바로 볼 수 있어요.",
-      "link": "",
-      "image": "",
+      "title": "국립중앙박물관 전시회",
+      "memo": "국보展 순회전 (2026.5. ~ 2026.11.)",
+      "link": "https://www.museum.go.kr",
+      "image": "images/walk-museum.jpg",
       "date": "2026-10-26"
     }
   ]

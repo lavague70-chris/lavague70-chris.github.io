@@ -143,13 +143,16 @@ main {
   border-radius: 18px;
   overflow: hidden;
 }
-.item img {
+/* 사진·영상: 세로 사진도 잘리지 않게 전체를 보여줌 */
+.item img,
+.item video {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  background: var(--line);
+  max-height: 460px;
+  object-fit: contain;
+  background: #F4F1EC;
 }
+.item video { background: #000; }
 .item-body { padding: 16px 18px; }
 .item-title { margin: 0; font-size: 17px; font-weight: 700; }
 .item-memo { margin: 4px 0 0; color: #3D4250; font-size: 15px; }
