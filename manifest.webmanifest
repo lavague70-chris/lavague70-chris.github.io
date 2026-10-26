@@ -1,0 +1,15 @@
+{
+  "name": "Chris's Pick",
+  "short_name": "Chris's Pick",
+  "description": "크리스가 고른 것들 — AI 연구실 · 재봉 공방 · 구경 산책",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FAF7F2",
+  "theme_color": "#FAF7F2",
+  "lang": "ko",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
